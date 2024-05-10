@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Entity;
 
 import java.time.DateTimeException;
 import java.time.LocalTime;

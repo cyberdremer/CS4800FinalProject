@@ -1,6 +1,4 @@
-package org.example;
-
-import org.example.Address;
+package org.example.Entity;
 
 public class Customer {
     private String name;

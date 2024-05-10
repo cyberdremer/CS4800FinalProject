@@ -1,6 +1,6 @@
 package org.example;
 
-import org.example.Address;
+import org.example.Entity.*;
 
 public class Driver {
     private String name;
