@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+left to right direction
+:User:
+
+package CPPMovies {
+    (display video description)
+    (play video)
+    (pause video)
+    (rewind video)
+    (display subtitles)
+    (Search videos by name)
+    (Search videos by category)
+    (filter by movies)
+    (filter by tv shows)
+}
+
+User --> (display video description)
+User -->  (play video)
+User -->  (pause video)
+User -->  (rewind video)
+User -->  (display subtitles)
+User --> (Search videos by name)
+User --> (Search videos by category)
+User --> (filter by movies)
+User --> (filter by tv shows)
+
+
+@enduml
