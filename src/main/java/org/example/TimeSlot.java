@@ -4,14 +4,15 @@ import java.time.DateTimeException;
 import java.time.LocalTime;
 
 public class TimeSlot {
-    private final int lengthOfShiftInHours = 8;
+    private int lengthOfTimeSlot;
     private LocalTime startTime;
     private LocalTime endTime;
 
-    public TimeSlot(int startHourMilitaryTime){
+    public TimeSlot(int startHourMilitaryTime, int lengthOfTimeSlot){
         try{
+            this.lengthOfTimeSlot = lengthOfTimeSlot;
             startTime = LocalTime.of(startHourMilitaryTime, 0);
-            endTime = LocalTime.of(startHourMilitaryTime + lengthOfShiftInHours, 0);
+            endTime = LocalTime.of(startHourMilitaryTime + this.lengthOfTimeSlot, 0);
 
         }
         catch (DateTimeException dateTimeException){
