@@ -22,11 +22,10 @@ public class TimeSlot {
 
 
 
-    public LocalTime getStartTime() {
-        return startTime;
+    public boolean checkIfWithinTimeSlot(int startHourInMilitaryTime, int start){
+        LocalTime target = LocalTime.of(startHourInMilitaryTime, start);
+        return target.isAfter(startTime) && target.isBefore(endTime);
+
     }
 
-    public LocalTime getEndTime() {
-        return endTime;
-    }
 }
