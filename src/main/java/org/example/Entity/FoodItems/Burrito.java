@@ -1,27 +1,23 @@
 package org.example.Entity.FoodItems;
 
-public class Burrito implements Food {
-    private double price;
-    private final String name;
-    private static final String CATEGORY = "Mexican";
+public abstract class Burrito extends AbstractFood {
 
-    public Burrito(double price) {
-        this.price = price;
-        this.name = "Burrito";
+    public Burrito(String name, double price) {
+        super(name, price, "Mexican");  
     }
 
     @Override
-    public double getPrice() {
-        return this.price;
+    public boolean isVegan() {
+        return false;  
     }
 
     @Override
-    public String getCategory() {
-        return CATEGORY;
+    public boolean isPaleo() {
+        return false;  
     }
 
     @Override
-    public String getName() {
-        return this.name;
+    public boolean containsNuts() {
+        return false; 
     }
 }

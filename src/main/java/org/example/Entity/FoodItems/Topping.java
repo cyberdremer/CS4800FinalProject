@@ -1,8 +1,9 @@
 package org.example.Entity.FoodItems;
 
-public abstract class Topping implements Food{
-    private Food food;
-    public Topping (Food food){
+public abstract class Topping implements Food {
+    protected Food food;
+
+    public Topping(Food food) {
         this.food = food;
     }
 
@@ -19,5 +20,20 @@ public abstract class Topping implements Food{
     @Override
     public String getName() {
         return food.getName();
+    }
+
+    @Override
+    public boolean containsNuts() {
+        return food.containsNuts();  
+    }
+
+    @Override
+    public boolean isVegan() {
+        return food.isVegan();  
+    }
+
+    @Override
+    public boolean isPaleo() {
+        return food.isPaleo();  
     }
 }

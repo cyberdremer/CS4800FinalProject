@@ -15,7 +15,21 @@ public class Guac extends Topping {
 
     @Override
     public String getName() {
-        return "Guac" + super.getName();
+        return "Guac " + super.getName(); 
+    }
+
+    @Override
+    public boolean isVegan() {
+        return super.isVegan();
+    }
+
+    @Override
+    public boolean containsNuts() {
+        return super.containsNuts();
+    }
+
+    @Override
+    public boolean isPaleo() {
+        return super.isPaleo();
     }
 }
-
