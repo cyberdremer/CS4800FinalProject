@@ -1,4 +1,4 @@
-package org.example.Entity.FoodItems;
+package org.example.Entity.FoodItems.Food;
 
 public class AbstractFood implements Food{
     protected String name;
