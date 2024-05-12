@@ -1,4 +1,6 @@
-package org.example.Entity.FoodItems;
+package org.example.Entity.FoodItems.Vegan;
+
+import org.example.Entity.FoodItems.Food.PadThai;
 
 public class VeganPadThai extends PadThai {
 

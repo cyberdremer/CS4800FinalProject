@@ -1,6 +1,6 @@
 package org.example.Entity.Strategy;
 
-import org.example.Entity.FoodItems.Food;
+import org.example.Entity.FoodItems.Food.Food;
 import java.util.List;
 import java.util.stream.Collectors;
 
