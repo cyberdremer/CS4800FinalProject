@@ -1,4 +1,4 @@
-package org.example.Entity.FoodItems;
+package org.example.Entity.FoodItems.Food;
 
 public class Guac extends Topping {
     private double guacPrice;

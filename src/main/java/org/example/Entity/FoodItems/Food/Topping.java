@@ -1,4 +1,4 @@
-package org.example.Entity.FoodItems;
+package org.example.Entity.FoodItems.Food;
 
 public abstract class Topping implements Food {
     protected Food food;
