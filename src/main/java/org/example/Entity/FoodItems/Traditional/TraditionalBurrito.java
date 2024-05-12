@@ -1,4 +1,6 @@
-package org.example.Entity.FoodItems;
+package org.example.Entity.FoodItems.Traditional;
+
+import org.example.Entity.FoodItems.Food.Burrito;
 
 public class TraditionalBurrito extends Burrito {
 
