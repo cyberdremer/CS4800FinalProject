@@ -1,6 +1,8 @@
-package org.example.Entity.FoodItems;
+package org.example.Entity.FoodItems.Paleo;
 
-public class PaleoBurrito extends Burrito{
+import org.example.Entity.FoodItems.Food.Burrito;
+
+public class PaleoBurrito extends Burrito {
     public PaleoBurrito(double price) {
         super("Paleo Burrito", price);
     }
