@@ -1,9 +1,9 @@
 package org.example.Entity.Strategy;
 
-import org.example.Entity.FoodItems.Food;
-
 import java.util.List;
 
+import org.example.Entity.FoodItems.Food.AbstractFood;
+
 public interface MealPlanStrategy {
-    public List<Food> customizeMeal();
+    public List<AbstractFood> customizeMeal();
 }

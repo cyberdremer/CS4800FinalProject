@@ -1,19 +1,19 @@
 package org.example.Entity.Strategy;
 
-import org.example.Entity.FoodItems.Food.Food;
+import org.example.Entity.Factory.FoodRegistry;
+import org.example.Entity.FoodItems.Food.AbstractFood;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class NoRestrictionMeal implements MealPlanStrategy {
-    private List<Food> availableFoods;
+    private FoodRegistry registry;
 
-    public NoRestrictionMeal(List<Food> availableFoods) {
-        this.availableFoods = availableFoods;
+    public NoRestrictionMeal(FoodRegistry registry) {
+        this.registry = registry;
     }
 
     @Override
-    public List<Food> customizeMeal() {
-        return new ArrayList<>(availableFoods); 
+    public List<AbstractFood> customizeMeal() {
+        return this.registry.getAllFoodItems();
     }
 }
