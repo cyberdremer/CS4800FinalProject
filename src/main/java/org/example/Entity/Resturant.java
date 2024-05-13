@@ -1,29 +1,36 @@
 package org.example.Entity;
 
+import org.example.Entity.Factory.FoodRegistry;
+import org.example.Entity.Factory.NoRestrictionFactory;
+import org.example.Entity.FoodItems.Food.AbstractFood;
+
 public class Resturant {
     private String name;
-    private Address address;
-    private County county;
+    private String address;
+    private FoodRegistry menu;
 
-    public Resturant(String name, Address address, County county){
+    public Resturant(String name) {
         this.name = name;
-        this.address = address;
-        this.county =county;
+        this.menu = new FoodRegistry();
+        NoRestrictionFactory factory = NoRestrictionFactory.getInstance(this.menu);
+        printMenu();
     }
 
     public String getName() {
         return name;
     }
 
-    public Address getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public County getCounty() {
-        return county;
-    }
+    public void printMenu() {
+        AbstractFood burger = menu.getFood("burger");
+        AbstractFood burrito = menu.getFood("burrito");
+        AbstractFood padthai = menu.getFood("padthai");
 
-    public void printMenu(){
-
+        if (burger != null) System.out.println("Burger: $" + burger.getPrice());
+        if (burrito != null) System.out.println("Burrito: $" + burrito.getPrice());
+        if (padthai != null) System.out.println("Pad Thai: $" + padthai.getPrice());
     }
 }

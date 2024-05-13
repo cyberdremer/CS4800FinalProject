@@ -5,26 +5,30 @@ import org.example.Entity.FoodItems.Traditional.TraditionalBurger;
 import org.example.Entity.FoodItems.Traditional.TraditionalBurrito;
 import org.example.Entity.FoodItems.Traditional.TraditionalPadThai;
 
-import java.util.HashMap;
-
-public class NoRestrictionFactory extends AbstractFoodFactory{
-    private static HashMap<String, AbstractFood> foodHashMap = new HashMap<>();
+public class NoRestrictionFactory extends AbstractFoodFactory {
     private static NoRestrictionFactory noRestrictionFactory = null;
-    private NoRestrictionFactory(){}
+    private FoodRegistry foodRegistry;
 
-    static {
-        foodHashMap.put("burger", new TraditionalBurger(5.99));
-        foodHashMap.put("burrito", new TraditionalBurrito(6.99));
-        foodHashMap.put("padthai", new TraditionalPadThai(4.99));
+    private NoRestrictionFactory(FoodRegistry foodRegistry) {
+        this.foodRegistry = foodRegistry;
+        registerFoods();
     }
-    public static NoRestrictionFactory getInstance() {
-        if (noRestrictionFactory == null){
-            noRestrictionFactory = new NoRestrictionFactory();
+
+    private void registerFoods() {
+        this.foodRegistry.registerFood("burger", new TraditionalBurger(5.99));
+        this.foodRegistry.registerFood("burrito", new TraditionalBurrito(6.99));
+        this.foodRegistry.registerFood("padthai", new TraditionalPadThai(4.99));
+    }
+
+    public static NoRestrictionFactory getInstance(FoodRegistry foodRegistry) {
+        if (noRestrictionFactory == null) {
+            noRestrictionFactory = new NoRestrictionFactory(foodRegistry);
         }
         return noRestrictionFactory;
     }
+
     @Override
-    AbstractFood getFood(String foodName) {
-        return foodHashMap.get(foodName.trim().toLowerCase());
+    public AbstractFood getFood(String foodName) {
+        return this.foodRegistry.getFood(foodName);
     }
 }
