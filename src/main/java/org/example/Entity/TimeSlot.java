@@ -8,10 +8,10 @@ public class TimeSlot {
     private LocalTime startTime;
     private LocalTime endTime;
 
-    public TimeSlot(int startHourMilitaryTime, int lengthOfTimeSlot){
+    public TimeSlot(int startHourMilitaryTime, int startMinuteMilitaryTime, int lengthOfTimeSlot){
         try{
             this.lengthOfTimeSlot = lengthOfTimeSlot;
-            startTime = LocalTime.of(startHourMilitaryTime, 0);
+            startTime = LocalTime.of(startHourMilitaryTime, startMinuteMilitaryTime);
             endTime = LocalTime.of(startHourMilitaryTime + this.lengthOfTimeSlot, 0);
 
         }
