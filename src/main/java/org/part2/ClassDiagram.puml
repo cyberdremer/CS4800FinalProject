@@ -1,0 +1,53 @@
+@startuml
+class User {
+    - userId: int
+    - username: string
+    - password: string
+    - email: string
+    - subscriptionType: string
+    - watchList: List<VideoContent>
+    + login(): void
+    + logout(): void
+    + signUp(): void
+    + updateProfile(): void
+    + addToWatchlist(contentId: int): void
+    + removeFromWatchlist(contentId: int): void
+}
+
+class VideoContent {
+    - contentId: int
+    - title: string
+    - description: string
+    - genre: string
+    - duration: int
+    - releaseDate: date
+    - ratings: List<int>
+    + displayDescription(): void
+    + play(): void
+    + pause(): void
+    + rewind(): void
+}
+
+class Catalog {
+    - listOfMovies: List<VideoContent>
+    - listOfTVShows: List<VideoContent>
+    + searchByName(name: string): List<VideoContent>
+    + filterByCategory(category: string): List<VideoContent>
+    + filterByType(type: string): List<VideoContent>
+}
+
+class Authentication {
+    + authenticateUser(username: string, password: string): void
+    + registerUser(userDetails: User): void
+    + terminateSession(userId: int): void
+}
+
+class RecommendationEngine {
+    - userId: int
+    - userPreferences: List<string>
+    + generateRecommendations(): List<VideoContent>
+}
+
+User --|> VideoContent
+Catalog -- VideoContent
+@enduml
