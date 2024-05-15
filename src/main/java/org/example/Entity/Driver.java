@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Entity;
 
 import org.example.Entity.*;
 
@@ -31,13 +31,16 @@ public class Driver {
         return county;
     }
 
-    public void setShift(int startHoursInMilitaryTime, int shiftLengthInHours){
-        shift = new TimeSlot(startHoursInMilitaryTime, shiftLengthInHours);
+    public void setShift(int startHoursInMilitaryTime, int startMinutes, int shiftLengthInHours){
+        shift = new TimeSlot(startHoursInMilitaryTime,startMinutes, shiftLengthInHours);
     }
 
     public boolean validWorkingTime(int hourInMilitaryTime, int minutesInMilitaryTime){
         return shift.checkIfWithinTimeSlot(hourInMilitaryTime, minutesInMilitaryTime);
+    }
 
+    public boolean validDeliveryCounty(County deliveryCounty){
+        return deliveryCounty.equals(county);
     }
 
 
