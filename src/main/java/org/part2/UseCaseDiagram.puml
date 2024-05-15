@@ -1,29 +1,49 @@
 @startuml
 'https://plantuml.com/use-case-diagram
 left to right direction
-:User:
+actor Guest as "Guest User"
+actor User as "Registered User"
 
-package CPPMovies {
-    (display video description)
-    (play video)
-    (pause video)
-    (rewind video)
-    (display subtitles)
-    (Search videos by name)
-    (Search videos by category)
-    (filter by movies)
-    (filter by tv shows)
+package "CPPMovies"{
+    (Display Video Description)
+    (Play Video)
+    (Pause Video)
+    (Rewind Video)
+    (Display Subtitles)
+    (Search Videos by Name)
+    (Search Videos by Category)
+    (Filter by Movies)
+    (Filter by TV Shows)
+    (Adjust Streaming Quality)
+    (Manage Profile)
+    (View Recommendations)
+    (Rate Content)
+    (Add to Watchlist)
+    (Remove from Watchlist)
+    (Browse Catalog)
+    (Login)
+    (Sign Up)
+    (Logout)
 }
 
-User --> (display video description)
-User -->  (play video)
-User -->  (pause video)
-User -->  (rewind video)
-User -->  (display subtitles)
-User --> (Search videos by name)
-User --> (Search videos by category)
-User --> (filter by movies)
-User --> (filter by tv shows)
+User --> (Display Video Description)
+User --> (Play Video)
+User --> (Pause Video)
+User --> (Rewind Video)
+User --> (Display Subtitles)
+User --> (Search Videos by Name)
+User --> (Search Videos by Category)
+User --> (Filter by Movies)
+User --> (Filter by TV Shows)
+User --> (Adjust Streaming Quality)
+User --> (Manage Profile)
+User --> (View Recommendations)
+User --> (Rate Content)
+User --> (Add to Watchlist)
+User --> (Remove from Watchlist)
+User --> (Logout)
 
+Guest --> (Login)
+Guest --> (Sign Up)
 
 @enduml
