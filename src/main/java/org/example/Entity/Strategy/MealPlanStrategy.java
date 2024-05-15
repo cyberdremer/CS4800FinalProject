@@ -5,5 +5,5 @@ import java.util.List;
 import org.example.Entity.FoodItems.Food.AbstractFood;
 
 public interface MealPlanStrategy {
-    public List<AbstractFood> customizeMeal();
+    public AbstractFood customizeMeal(List<AbstractFood> foods);
 }

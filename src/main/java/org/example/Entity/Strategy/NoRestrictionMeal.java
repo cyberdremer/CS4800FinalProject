@@ -1,19 +1,18 @@
 package org.example.Entity.Strategy;
 
-import org.example.Entity.Factory.FoodRegistry;
 import org.example.Entity.FoodItems.Food.AbstractFood;
 
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class NoRestrictionMeal implements MealPlanStrategy {
-    private FoodRegistry registry;
 
-    public NoRestrictionMeal(FoodRegistry registry) {
-        this.registry = registry;
-    }
+
 
     @Override
-    public List<AbstractFood> customizeMeal() {
-        return this.registry.getAllFoodItems();
+    public AbstractFood customizeMeal(List<AbstractFood> foods) {
+        int randomIndex = ThreadLocalRandom.current().nextInt(0, foods.size());
+        return foods.get(randomIndex);
     }
 }
