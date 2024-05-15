@@ -1,6 +1,11 @@
 package org.example.Entity;
 
+import org.example.Entity.FoodItems.Food.AbstractFood;
+import org.example.Entity.FoodItems.Food.Food;
 import org.example.Entity.Strategy.MealPlanStrategy;
+import org.example.ExceptionClasses.InvalidMealPlan;
+
+import java.util.List;
 
 public class Customer {
     private String name;
@@ -13,6 +18,7 @@ public class Customer {
         this.name = name;
         this.address = address;
         this.county = county;
+        this.mealPlanStrategy = null;
     }
 
 
@@ -28,11 +34,19 @@ public class Customer {
         return county;
     }
 
-    public void setMealPlanStrategy(MealPlanStrategy plan){
-        mealPlanStrategy = plan;
+
+    public void setMealPlanStrategy(MealPlanStrategy mealPlan){
+        this.mealPlanStrategy = mealPlan;
     }
 
-    public MealPlanStrategy getMealPlanStrategy(){
-        return mealPlanStrategy;
+    public AbstractFood executeMealPlan(List<AbstractFood> foods){
+        try{
+            return mealPlanStrategy.customizeMeal(foods);
+        }
+        catch (NullPointerException e){
+            throw new InvalidMealPlan("No meal plan has been provided by the customer!");
+        }
     }
+
+
 }
