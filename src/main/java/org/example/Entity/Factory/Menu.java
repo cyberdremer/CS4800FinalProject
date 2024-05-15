@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FoodRegistry {
+public class Menu {
     private Map<String, AbstractFood> foods = new HashMap<>();
 
     public void registerFood(String key, AbstractFood food) {
