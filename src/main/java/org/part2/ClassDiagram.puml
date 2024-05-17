@@ -6,12 +6,44 @@ class User {
     - email: string
     - subscriptionType: string
     - watchList: List<VideoContent>
-    + login(): void
-    + logout(): void
-    + signUp(): void
-    + updateProfile(): void
+}
+
+class Video {
+    - ID: int
+    - Resolution: String
+    - runtimeDuration: String
+    - filePath: String
+    + getVideo(): Video
+}
+
+class Movie {
+}
+
+class TVSeries {
+    - episodes: List<Video>
+}
+
+interface CPPMovies {
+    + signUp(user: User): void
+    + login(username: String, password: String): User
+    + logout(user: User): void
+    + updateProfile(user: User): void
     + addToWatchlist(contentId: int): void
     + removeFromWatchlist(contentId: int): void
+    + openVideoDetails(contentId: int): void
+    + addToCatalog(video: VideoContent): void
+    + displayVideoList(videos: List<Video>): void
+}
+
+class CPPMoviesProxy implements CPPMovies {
+    - proxyUsers: List<User>
+    - proxyCatalog: Catalog
+
+}
+
+class CPPMoviesServer implements CPPMovies {
+    - registeredUsers: List<User>
+    - catalog: Catalog
 }
 
 class VideoContent {
@@ -19,18 +51,20 @@ class VideoContent {
     - title: string
     - description: string
     - genre: string
-    - duration: int
     - releaseDate: date
     - ratings: List<int>
+    - typeOfVideo: String
     + displayDescription(): void
     + play(): void
     + pause(): void
     + rewind(): void
+    + showAllVideos(): void
 }
 
 class Catalog {
     - listOfMovies: List<VideoContent>
     - listOfTVShows: List<VideoContent>
+    + addVideo(video: Video): void
     + searchByName(name: string): List<VideoContent>
     + filterByCategory(category: string): List<VideoContent>
     + filterByType(type: string): List<VideoContent>
@@ -48,6 +82,23 @@ class RecommendationEngine {
     + generateRecommendations(): List<VideoContent>
 }
 
-User --|> VideoContent
-Catalog -- VideoContent
+User o-- RecommendationEngine
+
+User -- CPPMoviesProxy
+
+CPPMoviesProxy o-- CPPMoviesServer
+
+CPPMoviesServer o-- Catalog
+
+CPPMoviesServer -- Authentication
+
+Catalog o-- VideoContent
+
+VideoContent -- Video
+
+Movie --|> Video
+TVSeries --|> Video
+
+
+
 @enduml

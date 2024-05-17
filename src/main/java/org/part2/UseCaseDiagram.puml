@@ -3,6 +3,7 @@
 left to right direction
 actor Guest as "Guest User"
 actor User as "Registered User"
+actor System as "CPPMoviesServer"
 
 package "CPPMovies"{
     (Display Video Description)
@@ -24,6 +25,7 @@ package "CPPMovies"{
     (Login)
     (Sign Up)
     (Logout)
+    (recommend videos)
 }
 
 User --> (Display Video Description)
@@ -42,8 +44,10 @@ User --> (Rate Content)
 User --> (Add to Watchlist)
 User --> (Remove from Watchlist)
 User --> (Logout)
+User --> (Browse Catalog)
 
 Guest --> (Login)
 Guest --> (Sign Up)
 
+System --> (recommend videos)
 @enduml
