@@ -7,6 +7,8 @@ import org.example.Entity.Strategy.NoRestrictionMeal;
 import org.example.ExceptionClasses.CustomerNotFoundException;
 import org.example.ExceptionClasses.DriverNotFoundException;
 import org.example.ExceptionClasses.ResturantNotFoundException;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,11 +20,13 @@ public class MediatorTesting {
     Restaurant restaurant = null;
     Customer customer1, customer2 = null;
 
+    Driver driver1 = null;
+
     @BeforeEach
     public void setUp(){
         cppFoodDelivery = CPPFoodDelivery.getInstance();
         Address address = new Address("Utopia Ave", "Culver City", "CA", "90230", "United States");
-        Driver driver1 = new Driver("Mike", address, County.LA );
+        driver1 = new Driver("Mike", address, County.LA );
         driver1.setShift(8, 0, 8);
 
 
@@ -52,6 +56,18 @@ public class MediatorTesting {
         customer.setMealPlanStrategy(new NoNutMeal());
     }
 
+
+    @AfterEach
+    public void cleanUp(){
+        cppFoodDelivery = null;
+        address1 = null;
+        address2 = null;
+        restaurant = null;
+        customer1 = null;
+        customer2 = null;
+
+    }
+
     @Test
     public void testSingleton(){
         CPPFoodDelivery instance1 = CPPFoodDelivery.getInstance();
@@ -69,6 +85,7 @@ public class MediatorTesting {
     @Test
     public void testOrderFromTwoDifferentCounty(){
         cppFoodDelivery.assignDriverToResturant("Mike", "Wonton Palace");
+        restaurant = cppFoodDelivery.getResturant("Wonton Palace");
         assertThrows(DriverNotFoundException.class, ()-> cppFoodDelivery.getWorkingDeliveryDriver(restaurant, County.SANBERNARDINO, 9, 10));
     }
 
@@ -76,6 +93,7 @@ public class MediatorTesting {
     @Test
     public void testOrderThatIsNotWithinDriverShift(){
         cppFoodDelivery.assignDriverToResturant("Mike", "Wonton Palace");
+        restaurant = cppFoodDelivery.getResturant("Wonton Palace");
         assertThrows(DriverNotFoundException.class, ()-> cppFoodDelivery.getWorkingDeliveryDriver(restaurant, County.LA, 18, 0));
 
     }
@@ -85,6 +103,7 @@ public class MediatorTesting {
     @Test
     public void testOrderFromWithinTheSameCounty(){
         cppFoodDelivery.assignDriverToResturant("Mike", "Wonton Palace");
+        restaurant = cppFoodDelivery.getResturant("Wonton Palace");
         assertDoesNotThrow(() ->cppFoodDelivery.getWorkingDeliveryDriver(restaurant, County.LA, 9,0));
     }
 
@@ -130,7 +149,7 @@ public class MediatorTesting {
     @Test
     public void testOrder(){
         cppFoodDelivery.assignDriverToResturant("Mike", "Wonton Palace");
-       assertDoesNotThrow(()->  cppFoodDelivery.createOrder("David", "Wonton Palace", 12,0, "cheese"));
+       assertDoesNotThrow(()->  cppFoodDelivery.createOrder("David", "Wonton Palace", 12,0, "cheese", "crushedalmond"));
 
     }
 

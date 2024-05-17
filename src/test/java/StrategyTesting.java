@@ -16,8 +16,7 @@ import org.example.Entity.Strategy.VeganMeal;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class StrategyTesting {
     Restaurant restaurant = null;
@@ -48,8 +47,7 @@ public class StrategyTesting {
     public void testNoNutPlan(){
         customer.setMealPlanStrategy(new NoNutMeal());
         AbstractFood actualFood = customer.executeMealPlan(restaurant.getMenu());
-        AbstractFood expectedFood = new NutFreeBurger(0.00);
-        assertNotEquals(expectedFood.getClass(), actualFood.getClass());
+        assertFalse(actualFood.containsNuts());
 
     }
 
