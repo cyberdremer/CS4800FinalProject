@@ -48,25 +48,25 @@ public class MainDriver {
         driver1.setShift(8, 0, 8);
 
         Driver driver2 = new Driver("John",address2, County.LA);
-        driver1.setShift(10, 0, 8);
+        driver2.setShift(10, 0, 8);
 
         Driver driver3 = new Driver("Ann",address3, County.LA);
-        driver1.setShift(14, 0, 8);
+        driver3.setShift(14, 0, 8);
 
         Driver driver4 = new Driver("Frank",address4, County.LA);
-        driver1.setShift(14, 0, 9);
+        driver4.setShift(14, 0, 9);
 
         Driver driver5 = new Driver("Lucy",address5, County.LA);
-        driver1.setShift(8, 0, 4);
+        driver5.setShift(8, 0, 4);
 
         Driver driver6 = new Driver("Albert",address6, County.SANBERNARDINO);
-        driver1.setShift(8, 0, 8);
+        driver6.setShift(8, 0, 8);
 
         Driver driver7 = new Driver("Jesse",address7, County.SANBERNARDINO);
-        driver1.setShift(8, 0, 8);
+        driver7.setShift(8, 0, 8);
 
         Driver driver8 = new Driver("Adam",address8, County.LA);
-        driver1.setShift(8, 0, 8);
+        driver8.setShift(8, 0, 8);
 
 
 
@@ -75,31 +75,31 @@ public class MainDriver {
         customer1.setMealPlanStrategy(new NoRestrictionMeal());
 
         Customer customer2 = new Customer("John", address12, County.LA);
-        customer1.setMealPlanStrategy(new NoNutMeal());
+        customer2.setMealPlanStrategy(new NoNutMeal());
 
         Customer customer3 = new Customer("Jared", address13, County.LA);
-        customer1.setMealPlanStrategy(new PaleoMeal());
+        customer3.setMealPlanStrategy(new PaleoMeal());
 
         Customer customer4 = new Customer("Laura", address4, County.LA);
-        customer1.setMealPlanStrategy(new VeganMeal());
+        customer4.setMealPlanStrategy(new VeganMeal());
 
         Customer customer5 = new Customer("Jordan", address5, County.LA);
-        customer1.setMealPlanStrategy(new VeganMeal());
+        customer5.setMealPlanStrategy(new VeganMeal());
 
         Customer customer6 = new Customer("Edwin", address6, County.SANBERNARDINO);
-        customer1.setMealPlanStrategy(new PaleoMeal());
+        customer6.setMealPlanStrategy(new PaleoMeal());
 
         Customer customer7 = new Customer("Jimena", address7, County.SANBERNARDINO);
-        customer1.setMealPlanStrategy(new NoNutMeal());
+        customer7.setMealPlanStrategy(new NoNutMeal());
 
         Customer customer8 = new Customer("Raymond", address8, County.LA);
-        customer1.setMealPlanStrategy(new NoRestrictionMeal());
+        customer8.setMealPlanStrategy(new NoRestrictionMeal());
 
         Customer customer9 = new Customer("Pedro", address9, County.LA);
-        customer1.setMealPlanStrategy(new NoRestrictionMeal());
+        customer9.setMealPlanStrategy(new NoRestrictionMeal());
 
         Customer customer10 = new Customer("Jazmin", address10, County.LA);
-        customer1.setMealPlanStrategy(new NoRestrictionMeal());
+        customer10.setMealPlanStrategy(new NoRestrictionMeal());
 
 
 
@@ -184,7 +184,32 @@ public class MainDriver {
         cppFoodDelivery.createOrder("David", "Wonton Palace",
                         12,0, "cheese", "crushedalmond");
 
-        
+        /*
+        * */
+        cppFoodDelivery.createOrder("John", "Chipotle", 10, 0, "crushedalmond");
+
+        cppFoodDelivery.createOrder("Jared", "Chipotle", 13, 0 ,"cheese");
+
+
+        cppFoodDelivery.createOrder("Pedro", "Wonton Palace", 9, 0, "guac");
+
+        //Order at a time where there will be no drivers available
+        cppFoodDelivery.createOrder("Laura", "White Castle", 22, 0, "");
+
+        cppFoodDelivery.createOrder("Jazmin", "Chipotle", 12, 0,  "");
+
+        cppFoodDelivery.createOrder("Jimena", "White Castle", 13, 0 , "");
+
+        cppFoodDelivery.createOrder("Raymond", "Burger King", 10, 0, "Cheese", "guac");
+
+        cppFoodDelivery.createOrder("Jordan", "Wonton Palace", 15, 0, "crushedalmond");
+
+        /*
+        * Another order where a driver will not be available to take the order*/
+
+        cppFoodDelivery.createOrder("Edwin", "Wonton Palace", 12, 0, "");
+
+
 
 
 
