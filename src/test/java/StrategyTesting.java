@@ -71,14 +71,12 @@ public class StrategyTesting {
     }
 
 
+
     @Test
-    /**
-     * I am not sure on how to test this one.
-     */
-    public void testNoRestriction(){
+    public void testNoRestriction() {
         customer.setMealPlanStrategy(new NoRestrictionMeal());
         AbstractFood actualFood = customer.executeMealPlan(restaurant.getMenu());
-        assertEquals(Burger.class, actualFood.getClass());
+        assertTrue(restaurant.getMenu().contains(actualFood));
     }
 
 }
