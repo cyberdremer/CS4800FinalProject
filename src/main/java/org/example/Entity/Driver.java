@@ -17,6 +17,7 @@ public class Driver {
         this.name = name;
         this.address = address;
         this.county = county;
+        shift = null;
     }
 
     public String getName() {
