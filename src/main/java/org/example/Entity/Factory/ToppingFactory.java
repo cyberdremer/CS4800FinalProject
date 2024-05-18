@@ -29,6 +29,9 @@ public class ToppingFactory {
             case "guac" ->{
                 return new Guac(food, 5.99);
             }
+            case "" ->{
+                return food;
+            }
             default -> {
                 throw new InvalidTopping(topping + " is not a valid topping!\n");
             }
