@@ -53,6 +53,6 @@ public class Order {
                 "Order creation=" + timeOfOrder.format(formatter) + "\n" +
                 "Order picked up=" + timeOfPickup.format(formatter)+ "\n" +
                 "Order delivered=" + timeOfDelivery.format(formatter) + "\n" +
-                '}';
+                "}\n";
     }
 }
